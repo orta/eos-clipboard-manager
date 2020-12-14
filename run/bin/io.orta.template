@@ -1,0 +1,7 @@
+#!/usr/bin/gjs
+log("12")
+imports.package.init({ name: "io.orta.template", version: "1.0.0", prefix: "/home/orta/dev/eOS/template/run", libdir: "/home/orta/dev/eOS/template/run/lib/x86_64-linux-gnu" });
+
+log(Object.keys(imports.main))
+
+imports.package.run(imports.main);

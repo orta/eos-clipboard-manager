@@ -1,0 +1,6 @@
+#!@GJS@
+log("12")
+imports.package.init({ name: "io.orta.template", version: "@PACKAGE_VERSION@", prefix: "@prefix@", libdir: "@libdir@" });
+log(pkg.require("src/main.js"))
+log(Object.keys(imports))
+imports.package.run(main);
