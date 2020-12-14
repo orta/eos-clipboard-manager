@@ -12,4 +12,4 @@ let resource = Gio.Resource.load(GLib.build_filenamev([a, `io.orta.template.src.
 resource._register();
 
 log(resource)
-imports.package.run(imports/main);
+imports.package.run(imports.main);

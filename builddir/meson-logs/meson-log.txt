@@ -1,4 +1,4 @@
-Build started at 2020-12-14T15:37:22.612629
+Build started at 2020-12-14T15:37:53.843250
 Main binary: /usr/bin/python3
 Python system: Linux
 The Meson build system
@@ -33,8 +33,8 @@ Called `/usr/bin/pkg-config gtk+-3.0 --libs` -> 0
 Called `/usr/bin/pkg-config gtk+-3.0 --libs` -> 0
 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 Running compile:
-Working directory:  /tmp/tmpcvhwznt5
-Command line:  cc /tmp/tmpcvhwznt5/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpcvhwznt5/output.exe -O0 
+Working directory:  /tmp/tmphdmfsn8r
+Command line:  cc /tmp/tmphdmfsn8r/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmphdmfsn8r/output.exe -O0 
 
 Code:
  #include<stdio.h>
@@ -55,8 +55,8 @@ Program stderr:
 
 
 Running compile:
-Working directory:  /tmp/tmpit_ye4vp
-Command line:  cc /tmp/tmpit_ye4vp/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpit_ye4vp/output.obj -O0 --print-search-dirs 
+Working directory:  /tmp/tmpke1vahpf
+Command line:  cc /tmp/tmpke1vahpf/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpke1vahpf/output.obj -O0 --print-search-dirs 
 
 Code:
  
