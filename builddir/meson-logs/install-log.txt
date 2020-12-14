@@ -4,9 +4,3 @@
 /home/orta/dev/eOS/template/run/bin/io.orta.template
 /home/orta/dev/eOS/template/run/share/applications/io.orta.template.desktop
 /home/orta/dev/eOS/template/run/share/metainfo/io.orta.template.appdata.xml
-/home/orta/dev/eOS/template/run/share/metainfo
-/home/orta/dev/eOS/template/run/share/applications
-/home/orta/dev/eOS/template/run/bin
-/home/orta/dev/eOS/template/run/share/io.orta.template
-/home/orta/dev/eOS/template/run/share
-/home/orta/dev/eOS/template/run

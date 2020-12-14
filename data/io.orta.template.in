@@ -1,6 +1,15 @@
 #!@GJS@
 log("12")
+
+const GLib = imports.gi.GLib;
+const Gio = imports.gi.Gio;
+
 imports.package.init({ name: "io.orta.template", version: "@PACKAGE_VERSION@", prefix: "@prefix@", libdir: "@libdir@" });
-log(pkg.require("src/main.js"))
-log(Object.keys(imports))
-imports.package.run(main);
+
+let datadir = GLib.build_filenamev(["@prefix@", 'share']);
+let a = GLib.build_filenamev([datadir, "io.orta.template"])
+let resource = Gio.Resource.load(GLib.build_filenamev([a, `io.orta.template.src.gresource`]));
+resource._register();
+
+log(resource)
+imports.package.run(imports/main);
