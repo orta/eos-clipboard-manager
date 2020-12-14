@@ -1,4 +1,3 @@
-log("23")
 pkg.initGettext();
 pkg.initFormat();
 pkg.require({ 'Gdk': '3.0',
@@ -12,63 +11,74 @@ const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const Lang = imports.lang;
 
-const Util = imports.util;
-const Window = imports.window;
-
 function initEnvironment() {
     window.getApp = function() {
         return Gio.Application.get_default();
     };
 }
 
-const MyApplication = new Lang.Class({
-    Name: 'MyApplication',
-    Extends: Gtk.Application,
-
-    _init: function() {
-        this.parent({ application_id: pkg.name });
-
-        GLib.set_application_name(_("My JS Application"));
-    },
-
-    _onQuit: function() {
-        this.quit();
-    },
-
-    _initAppMenu: function() {
-        // let builder = new Gtk.Builder();
-        // builder.add_from_resource('/com/example/Gtk/JSApplication/app-menu.ui');
-
-        // let menu = builder.get_object('app-menu');
-        // this.set_app_menu(menu);
-    },
-
-    vfunc_startup: function() {
-        this.parent();
-
-        Util.loadStyleSheet('/com/example/Gtk/JSApplication/application.css');
-
-        Util.initActions(this,
-                         [{ name: 'quit',
-                            activate: this._onQuit }]);
-        this._initAppMenu();
-
-        log(_("My JS Application started"));
-    },
-
-    vfunc_activate: function() {
-        (new Window.MainWindow({ application: this })).show();
-    },
-
-    vfunc_shutdown: function() {
-        log(_("My JS Application exiting"));
-
-        this.parent();
+class ImageViewerWindow {
+    constructor(app) {
+        this._app = app;
+        this._window = null;
+        this._box = null;
+        this._image = null;
+        this._fileChooserButton = null;
     }
-});
+
+    _buildUI() {
+        this._window = new Gtk.ApplicationWindow({
+            application: this._app,
+            defaultHeight: 600,
+            defaultWidth: 800
+        });
+        this._box = new Gtk.Box({
+            orientation: Gtk.Orientation.VERTICAL
+        });
+
+        this._image = new Gtk.Image({
+            vexpand: true
+        });
+        this._box.add(this._image);
+
+        this._fileChooserButton = Gtk.FileChooserButton.new('Pick An Image', Gtk.FileChooserAction.OPEN);
+
+        this._fileChooserButton.connect('file-set', () => {
+            const fileName = this._fileChooserButton.get_filename();
+            this._image.set_from_file(fileName);
+        });
+
+        this._box.add(this._fileChooserButton);
+        this._box.show_all();
+
+        this._window.add(this._box);
+    }
+
+    getWidget() {
+        this._buildUI();
+        return this._window;
+    }
+}
 
 function main(argv) {
     initEnvironment();
 
-    return (new MyApplication()).run(argv);
-}
+    const application = new Gtk.Application({
+        application_id: 'org.gnome.Sandbox.ImageViewerExample',
+        flags: Gio.ApplicationFlags.FLAGS_NONE
+    });
+
+    application.connect('activate', app => {
+        let activeWindow = app.activeWindow;
+    
+        if (!activeWindow) {
+            let imageViewerWindow = new ImageViewerWindow(app);
+            activeWindow = imageViewerWindow.getWidget();
+        }
+    
+        activeWindow.present();
+    });
+    
+
+    return application.run(argv)
+  }

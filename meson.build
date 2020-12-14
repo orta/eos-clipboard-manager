@@ -10,7 +10,7 @@ gnome = import('gnome')
 
 source_conf = configuration_data()
 source_conf.set('GJS', find_program('gjs').path())
-source_conf.set('PACKAGE_NAME',  meson.project_name())
+source_conf.set('PACKAGE_NAME', app_id)
 source_conf.set('PACKAGE_VERSION', meson.project_version())
 source_conf.set('prefix', get_option('prefix'))
 pkgdatadir = join_paths(get_option('datadir'), meson.project_name() )
@@ -44,6 +44,7 @@ application_sources = gnome.compile_resources(
   install: true,
   install_dir: pkgdatadir
 )
+
 
 run_target('run',
   command: app_launcher,

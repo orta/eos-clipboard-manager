@@ -1,6 +1,0 @@
-[options]
-prefix = /home/orta/dev/eOS/template/run
-backend = ninja
-
-[properties]
-

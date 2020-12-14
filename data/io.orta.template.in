@@ -11,5 +11,6 @@ let a = GLib.build_filenamev([datadir, "io.orta.template"])
 let resource = Gio.Resource.load(GLib.build_filenamev([a, `io.orta.template.src.gresource`]));
 resource._register();
 
-log(resource)
-imports.package.run(imports.main);
+log(Object.keys(imports))
+
+imports.package.run(imports.src.main);
