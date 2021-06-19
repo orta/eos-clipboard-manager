@@ -13,44 +13,9 @@ pkg.require({ 'Gdk': '3.0',
 imports.gi.versions.Gtk = '3.0';
 
 const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const GObject = imports.gi.GObject
 
-const MyWindow = GObject.registerClass(class MyWindow extends Gtk.ApplicationWindow {
-    box: GTK.Box
-    button1: GTK.Button
-    button2: GTK.Button
-
-    _init(app: GTK.Application) {
-        super._init({ 
-            title: "Hello rld", 
-            application: app,
-            resizable: false,
-         });
-
-        this.box = new Gtk.Box({spacing: 6});
-        this.add(this.box);
-
-        this.button1 = new Gtk.Button({label: "Hello"});
-        this.button1.connect("clicked", this.onButton1Clicked);
-        this.box.pack_start(this.button1, true, true, 0);
-
-        this.button2 = new Gtk.Button({label: "Goodbye"});
-        this.button2.connect("clicked", this.onButton2Clicked);
-        this.box.pack_start(this.button2, true, true, 0);
-    }
-    
-    onButton1Clicked() {
-        print("Hello World");
-    }
-
-    onButton2Clicked() {
-        print("Goodbye World");
-    }
-});
-
-
+const mainWindow = imports.dist.mainWindow as { MainWindow: import("./mainWindow").MainWindow };
 
 function main(argv) {
 
@@ -65,10 +30,10 @@ function main(argv) {
     });
  
     application.connect('activate', app => {
-        let activeWindow = app.activeWindow;
+        let activeWindow: GTK.Window | undefined = app.activeWindow;
     
         if (!activeWindow) {
-           activeWindow = new MyWindow(application)
+           activeWindow = new mainWindow.MainWindow(application)
            activeWindow.connect("delete-event", () => Gtk.main_quit());
         }
     
@@ -77,3 +42,4 @@ function main(argv) {
 
     return application.run(argv)
   }
+

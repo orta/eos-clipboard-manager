@@ -2,5 +2,6 @@
 <gresources>
   <gresource prefix="/io/orta/clipboard/js">
     <file>dist/main.js</file>
+    <file>dist/mainWindow.js</file>
   </gresource>
 </gresources>
