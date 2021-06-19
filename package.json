@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@gi-types/gobject": "^2.66.9",
-    "@gi-types/gtk": "^3.24.9"
+    "@gi-types/gtk": "^3.24.9",
+    "esbuild": "^0.12.9"
   }
 }

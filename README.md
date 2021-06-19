@@ -24,7 +24,7 @@ yarn install
 eOS apps are created by meson, I have a quick script to make a build into a tmp dir and then  open it:
 
 ```sh
-# Run this once:
+# Run this once, or any time you change something in data:
 meson setup builddir --wipe --prefix /tmp/eos-clipboard/run
 
 # Now run this:
