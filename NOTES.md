@@ -1,5 +1,9 @@
-- needed to do `sudo apt-get install libgjs-dev`
 
+To get gjs running, you need to do `sudo apt-get install gjs libgjs-dev`
+To get meson: `sudo apt-get install meson`
+To get gtk+: `sudo apt-get install libgtk-3-dev`
+
+Running:
 - meson creates build files in `builddir` via `meson setup builddir --wipe`
 - ninja installs: `ninja -C builddir install; io.orta.template`
 
