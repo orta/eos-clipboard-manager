@@ -17,16 +17,20 @@ Now you can think about the JS level deps:
 
 ```sh
 yarn install
+
+# Prove your setup is fine
+yarn tsc
+code .
 ```
 
-Note: we are targeting gjs 1.64.5, not latest because elementaryOS uses older builds of Ubuntu and they don't have the [latest gjs](https://launchpad.net/ubuntu/+source/gjs). 
+Note: we are targeting gjs 1.64.5, not latest because elementaryOS uses older builds of Ubuntu and they don't have the [latest gjs](https://launchpad.net/ubuntu/+source/gjs) in apt. 
 
 ### Compiling
 
-eOS apps are created by meson, I have a quick script to make a build into a tmp dir and then open it:
+eOS apps are built by meson, I have a quick script to make a build into a tmp dir and then open it:
 
 ```sh
-# Run this once, or any time you change something in data:
+# Run this once, or any time you change something in the data folder:
 meson setup builddir --wipe --prefix /tmp/eos-clipboard/run
 
 # Now run this:

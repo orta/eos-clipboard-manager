@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run",
+            "command": "sh",
+            "args": [
+                "./run.sh"
+            ],
+            "type": "shell",
+            "problemMatcher": []
+        }
+    ]
+}

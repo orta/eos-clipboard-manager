@@ -17,7 +17,7 @@ const Gtk = imports.gi.Gtk;
 
 const mainWindow = imports.dist.mainWindow as { MainWindow: import("./mainWindow").MainWindow };
 
-function main(argv) {
+function main(argv: any[]) {
 
     // @ts-ignore
     window.getApp = function() {
@@ -37,6 +37,8 @@ function main(argv) {
            activeWindow.connect("delete-event", () => Gtk.main_quit());
         }
     
+        // I feel like this should be .present - but that doesn't show the content
+        // of the window?
         activeWindow.show_all();
     });
 
