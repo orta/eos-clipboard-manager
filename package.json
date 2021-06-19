@@ -1,0 +1,11 @@
+{
+  "name": "eos-clipboard-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/orta/throwaway-gjs-example.git",
+  "license": "MIT",
+  "dependencies": {
+    "@gi-types/gobject": "^2.66.9",
+    "@gi-types/gtk": "^3.24.9"
+  }
+}

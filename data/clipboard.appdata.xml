@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2020 Your Name <you@email.com> -->
 <component type="desktop">
-  <id>io.orta.template</id>
+  <id>io.orta.clipboard</id>
   <metadata_license>CC0</metadata_license>
   <name>Your App's Name</name>
   <summary>A Catchy Tagline</summary>

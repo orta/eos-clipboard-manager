@@ -1,3 +1,5 @@
+// @ts-check
+
 pkg.initGettext();
 pkg.initFormat();
 pkg.require({ 'Gdk': '3.0',
@@ -6,8 +8,13 @@ pkg.require({ 'Gdk': '3.0',
               'GObject': '2.0',
               'Gtk': '3.0' });
 
+imports.gi.versions.Gtk = '3.0';
+
+/** @type {typeof import("@gi-types/gio")} */
 const Gio = imports.gi.Gio;
+/** @type {typeof import("@gi-types/glib")} */
 const GLib = imports.gi.GLib;
+/** @type {typeof import("@gi-types/gtk")} */
 const Gtk = imports.gi.Gtk;
 const Lang = imports.lang;
 
@@ -64,10 +71,10 @@ function main(argv) {
     initEnvironment();
 
     const application = new Gtk.Application({
-        application_id: 'org.gnome.Sandbox.ImageViewerExample',
+        application_id: 'io.orta.clipboard',
         flags: Gio.ApplicationFlags.FLAGS_NONE
     });
-
+ 
     application.connect('activate', app => {
         let activeWindow = app.activeWindow;
     

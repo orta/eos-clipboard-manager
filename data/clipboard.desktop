@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Orta
-GenericName=OK
-Comment=Testings
+Name=Clipboard
+GenericName=Clipboard
+Comment=A test thing
 Categories=Utility;Education;
-Exec=io.orta.template
+Exec=io.orta.clipboard
 Icon=application-default-icon
 Terminal=false
 Type=Application

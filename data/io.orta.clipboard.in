@@ -1,0 +1,13 @@
+#!@GJS@
+
+const GLib = imports.gi.GLib;
+const Gio = imports.gi.Gio;
+
+imports.package.init({ name: "io.orta.clipboard", version: "@PACKAGE_VERSION@", prefix: "@prefix@", libdir: "@libdir@" });
+
+let datadir = GLib.build_filenamev(["@prefix@", 'share']);
+let a = GLib.build_filenamev([datadir, "io.orta.clipboard"])
+let resource = Gio.Resource.load(GLib.build_filenamev([a, `io.orta.clipboard.src.gresource`]));
+resource._register();
+
+imports.package.run(imports.src.main);
