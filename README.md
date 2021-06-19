@@ -19,9 +19,11 @@ Now you can think about the JS level deps:
 yarn install
 ```
 
+Note: we are targeting gjs 1.64.5, not latest because elementaryOS uses older builds of Ubuntu and they don't have the [latest gjs](https://launchpad.net/ubuntu/+source/gjs). 
+
 ### Compiling
 
-eOS apps are created by meson, I have a quick script to make a build into a tmp dir and then  open it:
+eOS apps are created by meson, I have a quick script to make a build into a tmp dir and then open it:
 
 ```sh
 # Run this once, or any time you change something in data:
