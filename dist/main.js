@@ -11,47 +11,23 @@ imports.gi.versions.Gtk = "3.0";
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const Lang = imports.lang;
+const GObject = imports.gi.GObject;
 function initEnvironment() {
   window.getApp = function() {
     return Gio.Application.get_default();
   };
 }
-class ImageViewerWindow {
-  constructor(app) {
-    this._app = app;
-    this._window = null;
-    this._box = null;
-    this._image = null;
-    this._fileChooserButton = null;
+const MyWindow = GObject.registerClass(class MyWindow2 extends Gtk.ApplicationWindow {
+  _init(app) {
+    super._init({ title: "Hello World", application: app });
+    this.button = new Gtk.Button({ label: "Click here" });
+    this.button.connect("clicked", MyWindow2.onButtonClicked);
+    this.add(this.button);
   }
-  _buildUI() {
-    this._window = new Gtk.ApplicationWindow({
-      application: this._app,
-      defaultHeight: 600,
-      defaultWidth: 800
-    });
-    this._box = new Gtk.Box({
-      orientation: Gtk.Orientation.VERTICAL
-    });
-    this._image = new Gtk.Image({
-      vexpand: true
-    });
-    this._box.add(this._image);
-    this._fileChooserButton = Gtk.FileChooserButton.new("Pick An Image", Gtk.FileChooserAction.OPEN);
-    this._fileChooserButton.connect("file-set", () => {
-      const fileName = this._fileChooserButton.get_filename();
-      this._image.set_from_file(fileName);
-    });
-    this._box.add(this._fileChooserButton);
-    this._box.show_all();
-    this._window.add(this._box);
+  static onButtonClicked() {
+    print("Hello World");
   }
-  getWidget() {
-    this._buildUI();
-    return this._window;
-  }
-}
+});
 function main(argv) {
   initEnvironment();
   const application = new Gtk.Application({
@@ -61,8 +37,8 @@ function main(argv) {
   application.connect("activate", (app) => {
     let activeWindow = app.activeWindow;
     if (!activeWindow) {
-      let imageViewerWindow = new ImageViewerWindow(app);
-      activeWindow = imageViewerWindow.getWidget();
+      activeWindow = new MyWindow(application);
+      activeWindow.connect("delete-event", () => Gtk.main_quit());
     }
     activeWindow.present();
   });
