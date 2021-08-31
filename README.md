@@ -31,8 +31,8 @@ eOS apps are built by meson, I have a quick script to make a build into a tmp di
 
 ```sh
 # Run this once, or any time you change something in the data folder:
-meson setup builddir --wipe --prefix /tmp/eos-clipboard/run
+sh ./scripts/bootstrap.sh
 
 # Now run this:
-sh ./run.sh
+sh ./scripts/run.sh
 ```
