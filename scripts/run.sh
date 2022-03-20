@@ -1,3 +1,4 @@
 yarn esbuild src/*.ts --outdir=dist
-ninja -C builddir install 
-/tmp/eos-clipboard/run/bin/io.orta.clipboard
+ninja -C builddir
+chmod +x builddir/io.orta.clipboard
+./builddir/io.orta.clipboard
