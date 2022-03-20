@@ -18,7 +18,6 @@ const Gtk = imports.gi.Gtk;
 const mainWindow = imports.dist.mainWindow as { MainWindow: import("./mainWindow").MainWindow };
 
 function main(argv: any[]) {
-
     // @ts-ignore
     window.getApp = function() {
         return Gio.Application.get_default();
@@ -27,8 +26,9 @@ function main(argv: any[]) {
     const application = new Gtk.Application({
         application_id: 'io.orta.clipboard',
         flags: Gio.ApplicationFlags.FLAGS_NONE
-    });
- 
+    }); 
+    
+
     application.connect('activate', app => {
         let activeWindow: GTK.Window | undefined = app.activeWindow;
     

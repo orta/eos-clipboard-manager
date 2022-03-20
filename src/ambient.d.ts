@@ -10,7 +10,8 @@ declare const imports: {
         Gio: typeof import("@gi-types/gio"),
         GLib: typeof import("@gi-types/glib"),
         Gtk: typeof import("@gi-types/gtk"),
-        GObject: typeof import("@gi-types/gobject")
+        GObject: typeof import("@gi-types/gobject"), 
+        Atk: typeof import("@gi-types/gobject")
     }
     // There correspond to files which have gone from src -> dist
     // via esbuild, the general rule of thumb to remember is that

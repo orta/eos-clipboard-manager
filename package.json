@@ -8,6 +8,7 @@
     "@gi-types/gobject": "^2.66.9",
     "@gi-types/gtk": "^3.24.9",
     "esbuild": "^0.12.9",
-    "typescript": "^4.3.4"
+    "typescript": "^4.3.4",
+    "fb-watchman": "^2.0.0"
   }
 }
